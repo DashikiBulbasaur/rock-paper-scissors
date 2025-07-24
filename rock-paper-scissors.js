@@ -38,16 +38,19 @@ function playRound(humanChoice, computerChoice) {
                 case "rock":
                     console.log("You and the computer both chose rock! No one wins!");
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
                 case "paper":
                     console.log("The computer chose paper! The computer wins!");
                     computerScore++;
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
                 case "scissors":
                     console.log("The computer chose scissors! You win!");
                     humanScore++;
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
             }
             break;
@@ -56,16 +59,19 @@ function playRound(humanChoice, computerChoice) {
                 case "paper":
                     console.log("You and the computer both chose paper! No one wins!");
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
                 case "scissors":
                     console.log("The computer chose scissors! The computer wins!");
                     computerScore++;
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
                 case "rock":
                     console.log("The computer chose rock! You win!");
                     humanScore++;
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
             }
             break;
@@ -74,16 +80,19 @@ function playRound(humanChoice, computerChoice) {
                 case "scissors":
                     console.log("You and the computer both chose scissors! No one wins!");
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
                 case "rock":
                     console.log("The computer chose rock! The computer wins!");
                     computerScore++;
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
                 case "paper":
                     console.log("The computer chose paper! You win!");
                     humanScore++;
                     console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                    console.log("First to three wins is the winner");
                     break;
             }
             break;
@@ -91,11 +100,19 @@ function playRound(humanChoice, computerChoice) {
                 console.log("Your choice was invalid! Therefore, the computer wins!");
                 computerScore++;
                 console.log(`Your score: ${humanScore}. The computer's score: ${computerScore}.`);
+                console.log("First to three wins is the winner");
             break;
     }
 }
 
-const getComputerSelection = getComputerChoice();
-const getHumanSelection = getHumanChoice();
+while (humanScore < 3 || computerScore < 3) {
+    const getComputerSelection = getComputerChoice();
+    const getHumanSelection = getHumanChoice();
+    playRound(getHumanSelection, getComputerSelection);
+}
 
-playRound(getHumanSelection, getComputerSelection);
+if (computerScore === 3) {
+    console.log("The computer won!");
+} else {
+    console.log("You won! Congratulations!");
+}
