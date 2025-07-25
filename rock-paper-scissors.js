@@ -29,9 +29,6 @@ function getHumanChoice() {
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         // i don't like the nested switch statements. ideally, the computerChoice switches
@@ -108,19 +105,25 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let number_of_games = 0;
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    let number_of_games = 0;
 
-while (number_of_games <= 5) {
-    number_of_games++;
-    const getComputerSelection = getComputerChoice();
-    const getHumanSelection = getHumanChoice();
-    playRound(getHumanSelection, getComputerSelection);
+    while (number_of_games <= 5) {
+        number_of_games++;
+        const getComputerSelection = getComputerChoice();
+        const getHumanSelection = getHumanChoice();
+        playRound(getHumanSelection, getComputerSelection);
+    }
+
+    if (computerScore === humanScore) {
+        console.log("After 5 games, you and the computer are tied!");
+    } else if (computerScore > humanScore) {
+        console.log("After 5 games, the computer won more games than you!");
+    } else {
+        console.log("After 5 games, you won more games than the computer!");
+    }
 }
 
-if (computerScore === humanScore) {
-    console.log("After 5 games, you and the computer are tied!");
-} else if (computerScore > humanScore) {
-    console.log("After 5 games, the computer won more games than you!");
-} else {
-    console.log("After 5 games, you won more games than the computer!");
-}
+playGame();
