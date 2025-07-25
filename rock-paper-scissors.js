@@ -29,6 +29,9 @@ function getHumanChoice() {
     }
 }
 
+let humanScore = 0;
+let computerScore = 0;
+
 function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         // i don't like the nested switch statements. ideally, the computerChoice switches
@@ -106,8 +109,6 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
     let number_of_games = 0;
 
     while (number_of_games <= 5) {
